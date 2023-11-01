@@ -10,7 +10,7 @@ global oled
 oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 
 # Menu options
-menu_items = ["Option 1", "Option 2", "Option 3", "FAKE_AP", "Option 5", "Option 6", "Option 7", "hari", "yadhu", "", ""]
+menu_items = ["DE-AUTH", "EVIL-TWIN", "BEACON", "FAKE_AP-freeWifi", "RFID-clone", "HotSpot", "", ""]
 current_selection = 0
 
 # Button setup
@@ -23,7 +23,7 @@ button_press_count = 0
 last_button_press_time = 0
 
 # Define the double-click interval (in milliseconds)
-double_click_interval = 500
+double_click_interval = 300
 
 #def button_click(pin):
 #    global n
@@ -76,5 +76,6 @@ while True:
     oled.text(">> "+menu_items[n], 0,5, 0)
     oled.text(menu_items[n+1], 0,25)
     oled.text(menu_items[n+2], 0,50)
+    #oled.text(menu_items[n+3], 0,30)
     oled.show()
 

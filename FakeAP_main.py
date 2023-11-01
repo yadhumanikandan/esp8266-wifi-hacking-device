@@ -2,6 +2,6 @@ from captive_portal import CaptivePortal
 
 
 def cap():
-    portal = CaptivePortal()
+    portal = CaptivePortal("FREE WIFI")
 
     portal.start()

@@ -3,10 +3,17 @@ import network
 import ubinascii as binascii
 import uselect as select
 import utime as time
+import ssd1306
+from machine import Pin, I2C
 
 from captive_dns import DNSServer
 from captive_http import HTTPServer
 from credentials import Creds
+
+
+i2c = I2C(scl=Pin(5), sda=Pin(4))
+global oled
+oled = ssd1306.SSD1306_I2C(128, 64, i2c)
 
 
 class CaptivePortal:
@@ -114,6 +121,9 @@ class CaptivePortal:
         if self.dns_server is None:
             self.dns_server = DNSServer(self.poller, self.local_ip)
             print("Configured DNS server")
+            oled.text("ACTIVE",10,0)
+            oled.text("( O _ O )", 25, 30)
+            oled.show()
 
         try:
             while True:
