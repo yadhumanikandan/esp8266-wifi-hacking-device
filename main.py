@@ -72,9 +72,9 @@ n=0
 
 while True:
     oled.fill(0)
-    oled.text(">>  "+menu_items[n], 0,0)
+    oled.fill_rect(0, 0, 128, 17, 1)
+    oled.text(">> "+menu_items[n], 0,5, 0)
     oled.text(menu_items[n+1], 0,25)
     oled.text(menu_items[n+2], 0,50)
-    #oled.text(menu_items[n+3], 0,30)
     oled.show()
 
