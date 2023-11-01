@@ -120,6 +120,7 @@ class CaptivePortal:
             print("Configured HTTP server")
         if self.dns_server is None:
             self.dns_server = DNSServer(self.poller, self.local_ip)
+            time.sleep(5)
             print("Configured DNS server")
             oled.text("ACTIVE",10,0)
             oled.text("( O _ O )", 25, 30)
